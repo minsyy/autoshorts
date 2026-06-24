@@ -52,4 +52,5 @@ def handle_transcription():
 
 if __name__ == '__main__':
     # Run server locally on port 5000
+    print('Starting Flask app (app.run) on port 5000...')
     app.run(debug=True, port=5000)
