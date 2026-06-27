@@ -4,47 +4,146 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#0b63d6">
+    <meta name="description" content="AutoShorts - Upload audio or video files to generate transcripts and short clips automatically.">
+
     <title>AutoShorts</title>
+
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
+
 <body>
 
-    <header class="site-header">
-        <div class="container">
-            <h1 class="logo">AutoShorts</h1>
-            <p class="tag">Quickly extract and create short clips from long recordings</p>
-        </div>
-    </header>
+<header class="site-header">
 
-    <main class="container">
-        <section class="panel">
-            <h2 class="panel-title">Transcriber</h2>
-            <p class="muted">Upload a video or audio file and the pipeline will generate a transcript and clips.</p>
+    <div class="container">
 
-            <form id="uploadForm" class="upload-form" enctype="multipart/form-data">
-                <label class="file-input" for="fileInput">
-                    <span class="file-icon">📁</span>
-                    <span class="file-label">Choose a video or audio file</span>
-                    <input id="fileInput" type="file" name="file" accept="video/*,audio/*" required>
-                </label>
+        <h1 class="logo">
+            AutoShorts
+        </h1>
 
-                <div class="form-row">
-                    <button id="submitBtn" type="submit" class="btn-primary">Upload & Transcribe</button>
-                    <div class="progress-wrap" aria-hidden="true">
-                        <div id="progressBar" class="progress-bar"></div>
-                        <div id="progressText" class="progress-text"></div>
+        <p class="tagline">
+            Upload your audio or video and automatically generate transcripts with short clips.
+        </p>
+
+    </div>
+
+</header>
+
+<main class="container">
+
+    <section class="panel">
+
+        <h2 class="panel-title">
+            Upload Media
+        </h2>
+
+        <p class="panel-description">
+            Select an audio or video file to begin automatic transcription and short clip generation.
+        </p>
+
+        <form
+            id="uploadForm"
+            class="upload-form"
+            enctype="multipart/form-data">
+
+            <label
+                for="fileInput"
+                class="file-input">
+
+                <div class="upload-content">
+
+                    <div class="upload-icon">
+                        📁
                     </div>
+
+                    <div class="upload-text">
+
+                        <strong>
+                            Choose File
+                        </strong>
+
+                        <span>
+                            Supported: MP4, MOV, MP3, WAV and other common formats
+                        </span>
+
+                    </div>
+
                 </div>
-            </form>
 
-            <div id="status" class="status" aria-live="polite"></div>
-        </section>
-    </main>
+                <input
+                    type="file"
+                    id="fileInput"
+                    name="file"
+                    accept="video/*,audio/*"
+                    required>
 
-    <footer class="site-footer">
-        <div class="container">Built for quick iteration • Check server logs for detailed output</div>
-    </footer>
+            </label>
 
-    <script src="{{ url_for('static', filename='app.js') }}"></script>
+            <div class="selected-file">
+
+                <span id="selectedFileName">
+                    No file selected
+                </span>
+
+            </div>
+
+            <button
+                id="submitBtn"
+                class="btn-primary"
+                type="submit">
+
+                Upload & Generate
+
+            </button>
+
+            <div class="progress-wrap">
+
+                <div class="progress">
+
+                    <div
+                        id="progressBar"
+                        class="progress-bar">
+
+                    </div>
+
+                </div>
+
+                <div
+                    id="progressText"
+                    class="progress-text">
+
+                    0%
+
+                </div>
+
+            </div>
+
+        </form>
+
+        <div
+            id="status"
+            class="status"
+            aria-live="polite">
+
+        </div>
+
+    </section>
+
+</main>
+
+<footer class="site-footer">
+
+    <div class="container">
+
+        <p>
+            AutoShorts • Responsive UI • Cross Browser Compatible
+        </p>
+
+    </div>
+
+</footer>
+
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+
 </body>
 </html>
